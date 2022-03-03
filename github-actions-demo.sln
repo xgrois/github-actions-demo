@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "github-actions-demo-app", "github-actions-demo-app\github-actions-demo-app.csproj", "{D0F878CD-DE1D-428B-A29E-BC484CF8622B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "github-actions-demo-app-tests", "github-actions-demo-app-tests\github-actions-demo-app-tests.csproj", "{D706667D-F406-4CC7-BBD0-10ED38DE57E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0F878CD-DE1D-428B-A29E-BC484CF8622B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0F878CD-DE1D-428B-A29E-BC484CF8622B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0F878CD-DE1D-428B-A29E-BC484CF8622B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0F878CD-DE1D-428B-A29E-BC484CF8622B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D706667D-F406-4CC7-BBD0-10ED38DE57E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D706667D-F406-4CC7-BBD0-10ED38DE57E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D706667D-F406-4CC7-BBD0-10ED38DE57E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D706667D-F406-4CC7-BBD0-10ED38DE57E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
