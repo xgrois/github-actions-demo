@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - master
+env:
+  AZURE_WEBAPP_NAME: github-actions-demo-web-app
+  DOTNET_VERSION: '6.0.x'
+  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,18 +16,43 @@ jobs:
       - name: Install dotnet
         uses: actions/setup-dotnet@v2.0.0
         with:
-          dotnet-version: 6.0.x
+          dotnet-version: ${{ env.DOTNET_VERSION }}
       - name: Restore Nuget packages
         run: dotnet restore
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build -c Release --no-restore
       - name: Test
         run: dotnet test --no-build
       - name: Publish
-        run: dotnet publish github-actions-demo-app/github-actions-demo-app.csproj -c Release -o website
+        run: dotnet publish github-actions-demo-app/github-actions-demo-app.csproj -c Release -o mywebsite
       - name: Upload Artifact
         uses: actions/upload-artifact@v2.3.1
         with:
-          name: app
-          path: website/**
+          name: app-pkg
+          path: mywebsite/**
           if-no-files-found: error
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v3.0.0
+        with:
+          name: app-pkg
+          path: mywebsite
+
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy to Azure WebApp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          package: app-pkg
+
+      - name: Logout from Azure
+        run: az logout
+  
