@@ -51,7 +51,7 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          package: app-pkg
+          package: mywebsite
 
       - name: Logout from Azure
         run: az logout
