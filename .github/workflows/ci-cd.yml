@@ -22,7 +22,7 @@ jobs:
       - name: Build
         run: dotnet build -c Release --no-restore
       - name: Test
-        run: dotnet test --no-build
+        run: dotnet test -c Release --no-build
       - name: Publish
         run: dotnet publish github-actions-demo-app/github-actions-demo-app.csproj -c Release -o mywebsite
       - name: Upload Artifact
